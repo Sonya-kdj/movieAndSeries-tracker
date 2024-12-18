@@ -1,0 +1,21 @@
+import { MigrationInterface, QueryRunner } from 'typeorm';
+
+export class UpdateSeriesTableAddRatingAndReleaseDate1680905492470 implements MigrationInterface {
+    name = 'UpdateSeriesTableAddRatingAndReleaseDate1680905492470';
+
+    public async up(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`
+            ALTER TABLE "series"
+            ADD COLUMN "rating" DECIMAL(3,2) DEFAULT NULL,
+            ADD COLUMN "releaseDate" DATE DEFAULT NULL;
+        `);
+    }
+
+    public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.query(`
+            ALTER TABLE "series"
+            DROP COLUMN "rating",
+            DROP COLUMN "releaseDate";
+        `);
+    }
+}

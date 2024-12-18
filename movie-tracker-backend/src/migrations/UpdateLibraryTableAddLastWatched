@@ -1,0 +1,21 @@
+import { MigrationInterface, QueryRunner } from 'typeorm'
+
+export class UpdateLibraryTableAddLastWatched1680905492460
+	implements MigrationInterface
+{
+	name = 'UpdateLibraryTableAddLastWatched1680905492460'
+
+	public async up(queryRunner: QueryRunner): Promise<void> {
+		await queryRunner.query(`
+            ALTER TABLE "library"
+            ADD COLUMN "lastWatched" DATETIME DEFAULT NULL;
+        `)
+	}
+
+	public async down(queryRunner: QueryRunner): Promise<void> {
+		await queryRunner.query(`
+            ALTER TABLE "library"
+            DROP COLUMN "lastWatched";
+        `)
+	}
+}
