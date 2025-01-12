@@ -16,7 +16,7 @@ export default {
 	},
 	methods: {
 		addMovie() {
-			console.log('Movie Added:', { title: this.title, year: this.year })
+			// console.log('Movie Added:', { title: this.title, year: this.year })
 		},
 	},
 }

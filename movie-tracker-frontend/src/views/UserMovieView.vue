@@ -169,7 +169,6 @@ export default {
 
 		const applyFilter = () => {
 			// Для обновления представления в интерфейсе
-			console.log('Фильтр применён:', selectedCountry.value)
 		}
 
 		const updateMovie = async movie => {
